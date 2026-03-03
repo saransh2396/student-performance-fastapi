@@ -15,3 +15,6 @@ artifacts/*.pkl
 # OS files
 .DS_Store
 Thumbs.db
+
+# Code
+.env

@@ -1,10 +1,12 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import Literal
+
 
 class StudentInput(BaseModel):
-    gender: str
+    gender: Literal["male", "female"]
     race_ethnicity: str
     parental_level_of_education: str
-    lunch: str
-    math_score: int
-    reading_score: int
-    writing_score: int
+    lunch: Literal["standard", "free/reduced"]
+    math_score: int = Field(..., ge=0, le=100)
+    reading_score: int = Field(..., ge=0, le=100)
+    writing_score: int = Field(..., ge=0, le=100)
